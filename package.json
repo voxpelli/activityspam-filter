@@ -1,6 +1,6 @@
 {
   "name": "activityspam-filter",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Extraction and modernization of the filters in activityspam",
   "homepage": "http://github.com/voxpelli/activityspam-filter",
   "repository": {
