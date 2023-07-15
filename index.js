@@ -1,4 +1,1 @@
-/**
- * @returns {Promise<void>}
- */
-export async function something () {}
+export { SpamFilter } from './lib/spamfilter.js';

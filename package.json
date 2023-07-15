@@ -44,6 +44,11 @@
     "test": "run-s check test:*"
   },
   "dependencies": {
+    "@types/pg": "^8.10.2",
+    "databank": "0.14.x",
+    "dateformat": "1.x",
+    "ioredis": "^5.3.2",
+    "step": "0.0.x"
   },
   "devDependencies": {
     "@types/chai": "^4.3.5",
@@ -69,6 +74,7 @@
     "mocha": "^10.2.0",
     "npm-run-all2": "^6.0.6",
     "type-coverage": "^2.26.0",
+    "type-fest": "^3.13.0",
     "typescript": "~5.1.6"
   }
 }
