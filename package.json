@@ -44,11 +44,7 @@
     "test": "run-s check test:*"
   },
   "dependencies": {
-    "@types/pg": "^8.10.2",
-    "databank": "0.14.x",
-    "dateformat": "1.x",
-    "ioredis": "^5.3.2",
-    "step": "0.0.x"
+    "ioredis": "^5.3.2"
   },
   "devDependencies": {
     "@types/chai": "^4.3.5",
