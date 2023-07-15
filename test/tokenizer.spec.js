@@ -27,7 +27,7 @@ describe('Tokenizer', () => {
     should.exist(tokenizer);
   });
 
-  it('should tokenize', async () => {
+  it('should tokenize', () => {
     const tokenizer = new Tokenizer();
     tokenizer.tokenize(data).should.deep.equal([
       'urn',
@@ -254,6 +254,140 @@ describe('Tokenizer', () => {
       'object.content=Viagra^Now',
       'object.content=Now^a',
       'object.content=a^',
+    ]);
+  });
+
+  it('should be configurable', () => {
+    const tokenizer = new Tokenizer({
+      useArrayLength: false,
+      useBare: false,
+      useDigrams: false,
+      usePrefixes: false,
+    });
+    tokenizer.tokenize(data).should.deep.equal([]);
+  });
+
+  it('should support only bare', () => {
+    const tokenizer = new Tokenizer({
+      useArrayLength: false,
+      useBare: true,
+      useDigrams: false,
+      usePrefixes: false,
+    });
+    tokenizer.tokenize(data).should.deep.equal([
+      'urn',
+      'uuid',
+      '7e4ed55a',
+      '2b99',
+      '48c8',
+      'a274',
+      '42819b2ddd39',
+      'http',
+      'example',
+      'net',
+      'status',
+      '35',
+      '2011',
+      '09',
+      '23T10',
+      '49',
+      '00Z',
+      'John',
+      'Smith',
+      'urn',
+      'uuid',
+      'bff0ecdd',
+      'a944',
+      '4d92',
+      'aed3',
+      'd6af8f13d610',
+      'http',
+      'example',
+      'net',
+      'status',
+      'johnsmith',
+      'post',
+      'urn',
+      'uuid',
+      '81e43564',
+      'c66f',
+      '40c5',
+      '878b',
+      '733275229521',
+      'note',
+      'a',
+      'href',
+      'http',
+      'example',
+      'com',
+      'viagra',
+      'spam',
+      'Buy',
+      'Viagra',
+      'Now',
+      'a',
+    ]);
+  });
+
+  it('should support only prefixes', () => {
+    const tokenizer = new Tokenizer({
+      useArrayLength: false,
+      useBare: false,
+      useDigrams: false,
+      usePrefixes: true,
+    });
+    tokenizer.tokenize(data).should.deep.equal([
+      'id=urn',
+      'id=uuid',
+      'id=7e4ed55a',
+      'id=2b99',
+      'id=48c8',
+      'id=a274',
+      'id=42819b2ddd39',
+      'url=http',
+      'url=example',
+      'url=net',
+      'url=status',
+      'url=35',
+      'published=2011',
+      'published=09',
+      'published=23T10',
+      'published=49',
+      'published=00Z',
+      'actor.displayName=John',
+      'actor.displayName=Smith',
+      'actor.id=urn',
+      'actor.id=uuid',
+      'actor.id=bff0ecdd',
+      'actor.id=a944',
+      'actor.id=4d92',
+      'actor.id=aed3',
+      'actor.id=d6af8f13d610',
+      'actor.url=http',
+      'actor.url=example',
+      'actor.url=net',
+      'actor.url=status',
+      'actor.url=johnsmith',
+      'verb=post',
+      'object.id=urn',
+      'object.id=uuid',
+      'object.id=81e43564',
+      'object.id=c66f',
+      'object.id=40c5',
+      'object.id=878b',
+      'object.id=733275229521',
+      'object.type=note',
+      'object.content=a',
+      'object.content=href',
+      'object.content=http',
+      'object.content=example',
+      'object.content=com',
+      'object.content=viagra',
+      'object.content=spam',
+      'object.content=Buy',
+      'object.content=Viagra',
+      'object.content=Now',
+      'object.content=a',
     ]);
   });
 });
