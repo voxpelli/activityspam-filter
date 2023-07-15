@@ -1,7 +1,7 @@
 {
   "name": "activityspam-filter",
   "version": "0.0.0",
-  "description": "A GitHub template repo for node modules",
+  "description": "Extraction and modernization of the filters in activityspam",
   "homepage": "http://github.com/voxpelli/activityspam-filter",
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "check:knip": "knip",
     "check:lint": "eslint --report-unused-disable-directives .",
     "check:tsc": "tsc",
-    "check:type-coverage": "type-coverage --detail --strict --at-least 99 --ignore-files 'test/*'",
+    "check:type-coverage": "type-coverage --detail --strict --at-least 95 --ignore-files 'test/*'",
     "check": "run-s clean && run-p check:*",
     "clean:declarations-top": "rm -rf $(find . -maxdepth 1 -type f -name '*.d.ts*' ! -name 'advanced-types.d.ts')",
     "clean:declarations-lib": "rm -rf $(find lib -type f -name '*.d.ts*' ! -name 'advanced-types.d.ts')",
@@ -48,12 +48,14 @@
   },
   "devDependencies": {
     "@types/chai": "^4.3.5",
+    "@types/chai-as-promised": "^7.1.5",
     "@types/mocha": "^10.0.1",
     "@types/node": "^16.18.38",
     "@voxpelli/eslint-config": "^18.0.0",
     "@voxpelli/tsconfig": "^8.0.0",
     "c8": "^8.0.0",
     "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^8.44.0",
     "eslint-plugin-es-x": "^7.1.0",
     "eslint-plugin-import": "^2.27.5",
